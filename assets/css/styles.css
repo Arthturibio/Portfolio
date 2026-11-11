@@ -1,0 +1,119 @@
+/* Use esta classe nas seções para criar painéis translúcidos e borrados. */
+.content-panel {
+    width: min(100%, 1000px);
+    margin: 0 auto 24px;
+    padding: 32px;
+    border: 1px solid rgba(242, 240, 240, 0.16);
+    border-radius: 16px;
+    background-color: rgb(20 22 28 / 25%);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 28px rgb(0 0 0 / 22%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 96px 5% 40px;
+    color: #f4f4f5;
+    font-family: Arial, sans-serif;
+    background-color: #111318;
+    background-image: url("/assets/images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Barra flutuante inspirada nas top bars do Hyprland. */
+.header {
+    position: fixed;
+    top: 16px;
+    left: 5%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    min-height: 58px;
+    padding: 8px 20px;
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: 14px;
+    background-color: rgb(20 22 28 / 35%);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 28px rgb(0 0 0 / 28%);
+}
+
+.logo img {
+    display: block;
+    max-width: 120px;
+    max-height: 40px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+/* O menu fica centralizado na barra, mesmo com a logo à esquerda. */
+.menu {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    transform: translateX(-50%);
+}
+
+.menu a {
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #e5e7eb;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu a:hover {
+    border-color: rgb(255 255 255 / 14%);
+    color: #ffffff;
+    background-color: rgb(255 255 255 / 10%);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 88px 4% 28px;
+    }
+
+    .header {
+        top: 10px;
+        left: 4%;
+        width: 92%;
+        padding: 8px 12px;
+    }
+
+    .logo img {
+        max-width: 64px;
+    }
+
+    .menu {
+        position: static;
+        gap: 2px;
+        transform: none;
+    }
+
+    .menu a {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .content-panel {
+        padding: 22px;
+    }
+}
