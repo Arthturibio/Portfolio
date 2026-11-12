@@ -1,6 +1,6 @@
 /* Use esta classe nas seções para criar painéis translúcidos e borrados. */
 .content-panel {
-    width: min(100%, 1000px);
+    width: min(100%, 1200px);
     margin: 0 auto 24px;
     padding: 32px;
     border: 1px solid rgba(242, 240, 240, 0.16);
@@ -9,6 +9,154 @@
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 28px rgb(0 0 0 / 22%);
+}
+
+.inicio-panel h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.terminal {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    font: 15px/1.6 "Courier New", monospace;
+}
+
+.terminal-command {
+    min-height: 26px;
+    white-space: pre;
+}
+
+.terminal-command.escondido {
+    display: none;
+}
+
+.terminal-prompt {
+    color: #7dd3a7;
+}
+
+.fastfetch {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 12px;
+    animation: fastfetch-entrar 0.35s ease-out both;
+}
+
+.fastfetch-divider {
+    width: 40%;
+    border-top: 3px solid #7dd3a7;
+}
+
+.fastfetch[hidden] {
+    display: none;
+}
+
+.fastfetch-image {
+    width: 170px;
+    height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.fastfetch-info {
+    min-width: 0;
+}
+
+.fastfetch-info>div {
+    min-height: 1.6em;
+    white-space: pre-wrap;
+}
+
+.fastfetch-info>div:not(.visivel) {
+    visibility: hidden;
+}
+
+.fastfetch-title {
+    color: #8ab4f8;
+    font-weight: bold;
+}
+
+.fastfetch-rule,
+.fastfetch-label {
+    color: #7dd3a7;
+}
+
+.terminal-skills {
+    margin-top: 24px;
+}
+
+.terminal-skills[hidden] {
+    display: none;
+}
+
+.skills-divider {
+    width: 100%;
+    border-top: 3px solid #7dd3a7;
+}
+
+.skills-heading {
+    margin: 16px 0 12px;
+    color: #8ab4f8;
+    font: bold 15px/1.6 "Courier New", monospace;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+}
+
+.skill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #f4f4f5;
+    font: 14px/1.4 "Courier New", monospace;
+}
+
+.skill svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+}
+
+@keyframes fastfetch-entrar {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: #f4f4f5;
+    animation: cursor-piscar 1s steps(2, start) infinite;
+}
+
+@keyframes cursor-piscar {
+    to {
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .terminal-cursor,
+    .fastfetch {
+        animation: none;
+    }
 }
 
 * {
@@ -86,6 +234,16 @@ body {
     background-color: rgb(255 255 255 / 10%);
 }
 
+.imageProjetos img {
+    display: inline;
+    width: 500px;
+}
+
+.projeto {
+    text-align: justify;
+
+}
+
 @media (max-width: 600px) {
     body {
         padding: 88px 4% 28px;
@@ -115,5 +273,27 @@ body {
 
     .content-panel {
         padding: 22px;
+    }
+
+    .fastfetch {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .fastfetch-image {
+        width: 96px;
+        height: 96px;
+    }
+
+    .terminal {
+        font-size: 12px;
+    }
+
+    .skills-list {
+        gap: 10px 14px;
+    }
+
+    .skill {
+        font-size: 12px;
     }
 }
